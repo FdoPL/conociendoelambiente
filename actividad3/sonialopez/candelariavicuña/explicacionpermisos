@@ -1,0 +1,40 @@
+Los permisos de sistemas UNIX se dividen en tres clases, conocidas como usuario, grupo y otros (con frecuencia abreviado UGO, por sus siglas en inglés, User, Group, Others). De hecho, los permisos en Unix son una forma simplificada de listas de control de acceso (ACLs).
+Notación simbólica
+
+Existen muchas formas para representar los esquemas de permisos Unix. La forma más común es la notación simbólica. Este esquema permite representar permisos en una serie de 10 caracteres.
+Primer carácter
+- 	archivo regular
+d 	directorio
+l 	enlace simbólico
+Tres grupos de tres caracteres
+primero 	lo que el propietario (o dueño) puede hacer
+segundo 	lo que los miembros del grupo de usuarios pueden hacer
+tercero 	lo que el resto de los usuarios pueden hacer
+La tupla
+primero 	r: leíble, -: no leíble
+segundo 	w: modificable, -: protegido contra escritura
+tercero 	x: ejecutable, -: no ejecutable
+
+El primer carácter indica el tipo de archivo:
+
+    '-' denota un archivo regular
+    'd' denota un directorio
+    'b' denota un archivo especial de bloques
+    'c' denota un archivo especial de caracteres
+    'l' denota un enlace simbólico
+    'p' denota un tubo nombrado
+    's' denota un socket de dominio
+
+Cada clase de permisos se representa por tres caracteres. El primer conjunto de caracteres representa la clase de usuario. El segundo conjunto representa la clase de grupo. El tercer y último conjunto de tres caracteres representa la clase del resto.
+
+Cada uno de los tres caracteres representa los permisos de lectura, escritura y ejecución respectivamente:
+
+    'r' si el bit de lectura está asignado, '-' en caso contrario.
+    'w' si el bit de escritura está asignado, '-' en caso contrario.
+    'x' si el bit de ejecución está asignado, '-' en caso contrario.
+
+Estos son algunos ejemplos de notación simbólica:
+
+    "-rwxr-xr-x" para un archivo regular que tiene todos los permisos asignados para su propietario y solo permisos de lectura y ejecución para el grupo de usuarios del archivo y el resto de los usuarios. Ningún usuario, salvo el propietario, puede modificar los contenidos del archivo.
+    "crw-rw-r--" para un archivo especial de caracteres que tiene permisos de lectura y escritura para su propietario y grupo de usuarios y solo permiso de lectura para el resto de los usuarios.
+    "dr-x------" para un directorio que tiene permisos de lectura y ejecución únicamente para su propietario.
